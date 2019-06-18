@@ -1,0 +1,15 @@
+{
+  "name": "deleteme",
+  "version": "1.0.0",
+  "description": "teing various things",
+  "main": "simple-express-example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node simple-express-example.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
