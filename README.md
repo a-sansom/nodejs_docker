@@ -1,5 +1,7 @@
 This is just an experimental repository for seeing what's possible with Docker (Dockerfile and docker-compose.yml that references the Dockerfile) and VScode.
 
+Run npm install to install the `express` package and its dependencies, then build the Docker image/container to run the application.
+
 See comments in the `Dockerfile` and `docker-compose.yml` files for usage.
 
 Simply put, running `docker-compose up -d --build` will build a new `alexsansom/deleteme` image (with a `latest` tag), create a container from it, and run the container.
