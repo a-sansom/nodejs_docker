@@ -10,7 +10,7 @@ services:
     # See https://docs.docker.com/compose/compose-file/#image 
     image: alexsansom/deleteme
     # Specifying a container_name stops ability to use more than one of a contianer at a time as each container needs to have unique name.
-    container_name: deleteme
+    #container_name: deleteme
     # Map host (the Mac) port to port that's EXPOSEd in the Dockerfile.
     ports:
       - 3000:3000
