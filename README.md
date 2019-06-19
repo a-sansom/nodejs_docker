@@ -28,6 +28,8 @@ Inspiration of using the `command` override is from the docker-compose container
 
     https://github.com/microsoft/vscode-dev-containers/blob/30f79f47ec0dca47fc00a007e92d82b10831d61d/container-templates/docker-compose/.devcontainer/docker-compose.yml
 
+    https://code.visualstudio.com/docs/remote/containers#_extending-your-docker-compose-file-for-development
+
     https://github.com/microsoft/vscode-dev-containers/tree/30f79f47ec0dca47fc00a007e92d82b10831d61d
 
     https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-folder-in-a-container
