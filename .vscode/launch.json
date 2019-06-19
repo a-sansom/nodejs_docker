@@ -7,6 +7,16 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "(nodemon) Launch simple-express-example.js",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceFolder}/simple-express-example.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "(node) Launch simple-express-example.js",
             "program": "${workspaceFolder}/simple-express-example.js",
             "serverReadyAction": {
