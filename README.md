@@ -6,7 +6,7 @@ Run `npm install` to install the `express` package and its dependencies, then bu
 
 See comments in the `Dockerfile` and `docker-compose.yml` files for general usage.
 
-Simply put, running `docker-compose up -d --build` will build a new `alexsansom/deleteme` image (with a `latest` tag), create a container from it, and run the container (outside/independently of VSCode).
+Simply put, running `docker-compose up -d --build` will build a new `alexsansom/nodejs_docker` image (with a `latest` tag), create a container from it, and run the container (outside/independently of VSCode).
 
 The running container is a Nodejs `express` application that prints some text to the screen when you visit `http://localhost:3000` in the browser. If you edit `simple-express-example.js`, the application is restarted (not the container) and refreshing the browser will show the changes. This is because the container uses `nodemon` to monitor for changes.
 
@@ -48,7 +48,7 @@ This seems reasonably straightforward in comparison to VSCode. All that's requir
 
 Basically, select a new Node.js configuration, and for the 'Node interpreter' use the '...' to add a new 'Docker Compose' remote interpreter, selecting the `docker-compose.yml` in this directory for the 'Configuration file' field value.
 
-Saving those settings adds the new configuration at the top of the IDE's GUI. You can then set a breakpoint, click the 'Debug Deleteme (docker-compose)'  button next to the list of configurations and then access the application at `localhost:3000` in the browser which then hits the breakpoint.
+Saving those settings adds the new configuration at the top of the IDE's GUI. You can then set a breakpoint, click the 'Debug nodejs_docker (docker-compose)'  button next to the list of configurations and then access the application at `localhost:3000` in the browser which then hits the breakpoint.
 
 The Webstorm settings are stored in the `.idea/` directory files in this repository, so the debug configuration etc should be available when the directory is opened in the IDE.
 

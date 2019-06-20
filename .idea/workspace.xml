@@ -117,7 +117,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Deleteme (docker-compose)" type="NodeJSConfigurationType" path-to-node="docker-compose://[$PROJECT_DIR$/docker-compose.yml]:deleteme/node" working-dir="$PROJECT_DIR$">
+    <configuration name="nodejs_docker (docker-compose)" type="NodeJSConfigurationType" path-to-node="docker-compose://[$PROJECT_DIR$/docker-compose.yml]:nodejs_docker/node" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">

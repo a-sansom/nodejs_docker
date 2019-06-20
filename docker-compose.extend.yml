@@ -1,6 +1,6 @@
 version: "3"
 services:
-  deleteme:
+  nodejs_docker:
     # Required when 'extending' the existing docker-compose.yml. Same value(s).
     build:
       context: .

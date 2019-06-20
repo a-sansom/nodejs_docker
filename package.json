@@ -1,5 +1,5 @@
 {
-  "name": "deleteme",
+  "name": "nodejs_docker",
   "version": "1.0.0",
   "description": "Testing NodeJS with Docker and debugging",
   "main": "simple-express-example.js",
