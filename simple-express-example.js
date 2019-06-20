@@ -2,7 +2,9 @@ var express = require('express');
 var app = express();
 
 app.get('/', function (req, res) {
-  res.send('Hello World xxxxxyyyzzzz1112223333!')
+  let message = 'Hello World, at ' + new Date().getTime();
+
+  res.send(message);
 });
 
 app.listen(3000, function () {
