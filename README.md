@@ -12,7 +12,7 @@ The running container is a Nodejs `express` application that prints some text to
 
 ## Step debugging `express` script using `Dockerfile`/`docker-compose.*` and VSCode
 
-Possibly naive in initial thinking that you can just take any exsiting Dockerfile/docker-compose.yml file and use it within VSCode for step debugging. Docs (see links below) suggest you can use an existing Dockerfile/docker-compose.yml file, but it's not that straightforward as VSCode needs to alter the container to make things work.
+Possibly naive in initial thinking that you can just take any existing Dockerfile/docker-compose.yml file and use it within VSCode for step debugging. Docs (see links below) suggest you can use an existing Dockerfile/docker-compose.yml file, but it's not that straightforward as VSCode needs to alter the container to make things work.
 
 To achieve this though we can create a separate docker-compose file, `docker-compose.extend.yml` that also references the existing `Dockerfile`, but also adds a `command` that will, when the file is used, override the default `CMD` in the `Dockerfile`.
 
@@ -22,11 +22,11 @@ Open the project in VSCode, and you're prompted (by the existence of `.devcontai
 
 When the folder is re-opened in the container (you can use `Remote-Containers: Reopen Folder in Container` in command palette also), a tagged image is built (if doesn't already exist), the container is created/modified by VSCode (and left in a 'sleep' like state, where it's running - `docker ps` - but the express app is not available in the browser).
 
-You can then set a breakpoint in the code and start/run the aplication (`F5` or `Debug: Start Debugging` from command palette), visit the site in the browser (`http://localhost:3000/`) and debug breakpoints should be hit.
+You can then set a breakpoint in the code and start/run the application (`F5` or `Debug: Start Debugging` from command palette), visit the site in the browser (`http://localhost:3000/`) and debug breakpoints should be hit.
 
 The debug configuration used with `Debug: Start Debugging` seems to default to the first defined set of configuration in the `.vscode/launch.json` file. This is currently `nodemon`, so, when debugging, any changes to source files are reloaded and will be shown on browser refresh (which is not the case for the general `node` config, which requires a debugging session restart for changes to be visible).
 
-Stopping the debug session means that the application is no longer available in the browser. But, *the container is still running* (see via `docker ps`). This is due to the `docker-compose.extend.yml` configration `command: sleep infinity` which is the override to the default `CMD` in the underlying `Dockerfile`.
+Stopping the debug session means that the application is no longer available in the browser. But, *the container is still running* (see via `docker ps`). This is due to the `docker-compose.extend.yml` configuration `command: sleep infinity` which is the override to the default `CMD` in the underlying `Dockerfile`.
 
 The running Docker container is stopped when you close VSCode (the folder that was opened 'in the container').
 
