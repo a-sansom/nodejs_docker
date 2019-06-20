@@ -12,7 +12,7 @@ The running container is a Nodejs `express` application that prints some text to
 
 ## Step debugging `express` script using `Dockerfile`/`docker-compose.*` and VSCode
 
-Possibly naive in initial thinking that you can just take any exsiting Dockerfile/docker-compose.yml file and use it within VScode for step debugging. Docs (see links below) suggest you can use an existing Dockerfile/docker-compose.yml file, but it's not that straightforward as VSCode needs to alter the container to make things work.
+Possibly naive in initial thinking that you can just take any exsiting Dockerfile/docker-compose.yml file and use it within VSCode for step debugging. Docs (see links below) suggest you can use an existing Dockerfile/docker-compose.yml file, but it's not that straightforward as VSCode needs to alter the container to make things work.
 
 To achieve this though we can create a separate docker-compose file, `docker-compose.extend.yml` that also references the existing `Dockerfile`, but also adds a `command` that will, when the file is used, override the default `CMD` in the `Dockerfile`.
 
