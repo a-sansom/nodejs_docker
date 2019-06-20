@@ -41,3 +41,25 @@ Inspiration of using the `command` override is from the docker-compose container
     https://github.com/microsoft/vscode-dev-containers/tree/30f79f47ec0dca47fc00a007e92d82b10831d61d
 
     https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-folder-in-a-container
+
+## Step debugging `express` script using `Dockerfile`/`docker-compose.*` and Webstorm (2019.1.3)
+
+This seems reasonably straightforward in comparison to VSCode. All that's required is to setup a `Run/Debug configuration` for a remote interpreter, as is described in the Webstorm documentation [1].
+
+Basically, select a new Node.js configuration, and for the 'Node interpreter' use the '...' to add a new 'Docker Compose' remote interpreter, selecting the `docker-compose.yml` in this directory for the 'Configuration file' field value.
+
+Saving those settings adds the new configuration at the top of the IDE's GUI. You can then set a breakpoint, click the 'Debug Deleteme (docker-compose)'  button next to the list of configurations and then access the application at `localhost:3000` in the browser which then hits the breakpoint.
+
+The Webstorm settings are stored in the `.idea/` directory files in this repository, so the debug configuration etc should be available when the directory is opened in the IDE.
+
+After clicking the 'Debug' button (or just the 'Run' button) you can see the running Docker container with `docker ps`. Which is stopped either when during debugging you edit the file and save it (requires a new debug sessions to be started), or you stop the debug session manually. VSCode seems to handle edit/save without the need to restart the session.
+
+Looks like Webstorm uses a similar method to achieve debugging, using multiple `docker-compose.*` files to provide overrides of your initial one. Looking at the console having triggered debugging, you can see, as the first line, something like:
+
+    /Users/alex/Library/Caches/WebStorm2019.1/tmp/docker-compose.override.10.yml
+    ...
+
+So, instead of us defining the docker-compose 'extend' (VSCode), Webstorm is creating an 'override' [2] automatically.
+
+    [1] https://www.jetbrains.com/help/webstorm/configuring-remote-node-interpreters.html#ws_node_configure_remote_node_interpreter_docker
+    [2] https://docs.docker.com/compose/extends/#multiple-compose-files
