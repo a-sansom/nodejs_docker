@@ -1,0 +1,11 @@
+version: "3"
+services:
+  deleteme:
+    # Required when 'extending' the existing docker-compose.yml. Same value(s).
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Adding this overrides the default CMD. Building the image with this means we can use VSCode to debug in the container.
+    # We have to configure 'nodemon' as part of the debugger config in launch.json.
+    # This 'command' and the ':vscode' tag should be the only differences between docker-compose.yml and docker-compose.VSCODE.yml
+    command: sleep infinity
