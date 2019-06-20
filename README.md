@@ -4,21 +4,21 @@ Run npm install to install the `express` package and its dependencies, then buil
 
 See comments in the `Dockerfile` and `docker-compose.yml` files for usage.
 
-Simply put, running `docker-compose up -d --build` will build a new `alexsansom/deleteme` image (with a `latest` tag), create a container from it, and run the container.
+Simply put, running `docker-compose up -d --build` will build a new `alexsansom/deleteme` image (with a `latest` tag), create a container from it, and run the container (outside/independently of VSCode).
 
 The running container is a Nodejs `express` application that prints some text to the screen when you visit `http://localhost:3000` in the browser. If you edit `simple-express-example.js`, the application is restarted (not the container) and refreshing the browser will show the changes. This is becuase the container uses `nodemon` to monitor for changes.
 
 ### Step debugging express script using the Dockerfile and VSCode
 
-Possibly naive in intiial thinking that you can just take any exsiting Dockerfile/docker-compose.yml file and use it within VScode for step debugging. Docs (see links below) suggest you can use an existing Dockerfile/docker-compose.yml file, but it doesn't seem to be that straightforward as VSCode needs to alter the container to make things work.
+Possibly naive in intiial thinking that you can just take any exsiting Dockerfile/docker-compose.yml file and use it within VScode for step debugging. Docs (see links below) suggest you can use an existing Dockerfile/docker-compose.yml file, but it's not that straightforward as VSCode needs to alter the container to make things work.
 
-An approach to achieve this (not going to be the only approach) is to create a separate docker-compose file, `docker-compose.VSCODE.yml` to reference the existing `Dockerfile`, but to tag the resulting image differently and override the default `CMD` that's used (with a `command` in the compose file).
+An approach to achieve this is to create a separate docker-compose file, `docker-compose.VSCODE.yml` to reference the existing `Dockerfile`, but to tag the resulting image differently and override the default `CMD` that's used (with a `command` in the compose file).
 
 Then, create a `.devcontainer.json` project file that references the `docker-compose.VSCODE.yml` file.
 
-Open the project in VSCode, and you're prompted (by the existnece of `.devcontainer.json`) to open the folder in a container, for development.
+Open the project in VSCode, and you're prompted (by the existence of `.devcontainer.json`) to open the folder in a container, for development.
 
-When the folder is re-opened in the container (you can use `Remote-Conatiners: Reopen Folder in Container` in command palette), the tagged image is built (if doesn't already exist), the container is created/modified by VSCode (for its purposes) and you can then set a breakpoint in the code and run the aplication (`F5` or `Debug: Start Debugging` from command palette), visit the site in the browser (`http://localhost:3000/`) and debug breakpoints should be hit.
+When the folder is re-opened in the container (you can use `Remote-Conatiners: Reopen Folder in Container` in command palette also), the tagged image is built (if doesn't already exist), the container is created/modified by VSCode (for its purposes) and you can then set a breakpoint in the code and run the aplication (`F5` or `Debug: Start Debugging` from command palette), visit the site in the browser (`http://localhost:3000/`) and debug breakpoints should be hit.
 
 The debug configuration used with `Debug: Start Debugging` seems to default to the first defined set of configuration in the `.vscode/launch.json` file. This is currently `nodemon`, so, when debugging, any changes to source files are reloaded and will be shown on browser refresh (which is not the case for the general `node` config, which requires a debuggin session restart for changes to be visible).
 
