@@ -1,4 +1,4 @@
-# Using Docker containers and NodeJS
+# Using Docker containers and Node.js
 
 This is just an experimental repository for seeing what's possible with Docker (`Dockerfile` and `docker-compose.yml` that references the `Dockerfile`) and VSCode and Webstorm IDEs for development/debugging purposes.
 
@@ -8,7 +8,7 @@ See comments in the `Dockerfile` and `docker-compose.yml` files for general usag
 
 Simply put, running `docker-compose up -d --build` will build a new `alexsansom/nodejs_docker` image (with a `latest` tag), create a container from it, and run the container (outside/independently of VSCode).
 
-The running container is a Nodejs `express` application that prints some text to the screen when you visit `http://localhost:3000` in the browser. If you edit `simple-express-example.js`, the application is restarted (not the container) and refreshing the browser will show the changes. This is because the container uses `nodemon` to monitor for changes.
+The running container is a Node.js `express` application that prints some text to the screen when you visit `http://localhost:3000` in the browser. If you edit `simple-express-example.js`, the application is restarted (not the container) and refreshing the browser will show the changes. This is because the container uses `nodemon` to monitor for changes.
 
 ## Step debugging `express` script using `Dockerfile`/`docker-compose.*` and VSCode
 
