@@ -3,7 +3,7 @@
         "docker-compose.yml",
         "docker-compose.extend.yml"
     ],
-    "service": "deleteme",
+    "service": "nodejs_docker",
     "workspaceFolder": "/app",
 	"extensions": []
 }
