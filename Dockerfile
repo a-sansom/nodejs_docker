@@ -2,12 +2,12 @@
 #
 #     docker build -t alexsansom/nodejs_docker .
 #
-# Run a container, in detached mode, with port 3000 mapped from host (Mac) to client container, and mount the current directory as a volume, based on the image, with:
+# Run a container, in detached mode, with port 3000 mapped from the host (Mac) to client container, and mount the current directory as a Docker volume, based on the image, with:
 # NOTE: (pwd) is fish shell specific for printing present working directory. Could be ($pwd) in other shells.
 #
 #     docker run -d -p 3000:3000 -v (pwd):/app alexsansom/nodejs_docker
 #
-# Alternatively, using docker-compose(.yml) that encompases CLI params in the file, to build new image(s):
+# Alternatively, using docker-compose(.yml) that encompasses CLI params in the file, to build new image(s):
 #
 #     docker-compose --verbose build
 #
