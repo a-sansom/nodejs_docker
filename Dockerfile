@@ -34,7 +34,7 @@ WORKDIR /app
 # See https://docs.docker.com/engine/reference/builder/#run
 RUN ["npm", "install", "-g", "nodemon"]
 
-# Run the 'application', with 'node(mon)'.
+# Run the 'application', with 'node'.
 #CMD ["node", "simple-express-example.js"]
 # Run the 'application', with 'nodemon' so that changes are immediately
 # reflected (the node application, not the container, is restarted when files
