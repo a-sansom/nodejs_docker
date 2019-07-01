@@ -27,9 +27,6 @@ EXPOSE 3000
 # Set the context of where we will be executing commands in the container.
 WORKDIR /app
 
-# Copy the contents of the current directory into the container.
-#COPY . /app
-
 # Install 'nodemon' in the container as a global node package.
 # See https://docs.docker.com/engine/reference/builder/#run
 RUN ["npm", "install", "-g", "nodemon"]
@@ -42,7 +39,7 @@ RUN ["npm", "install", "-g", "nodemon"]
 CMD ["nodemon", "simple-express-example.js"]
 
 # Both ENTRYPOINT and CMD achieve a running node(mon) 'application'. But, the
-# intent of each directive is different. The closest to a decent, easy to
+# intent of each command is different. The closest to a decent, easy to
 # understand explanation on the difference yet seen is each commands section
 # in this 'best practices' guide:
 # https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
