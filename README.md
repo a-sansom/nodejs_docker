@@ -1,5 +1,7 @@
 # Using Docker containers with Node.js/express
 
+(See also ["Using Docker containers with Node.js script 'as an executable'"](https://github.com/a-sansom/nodejs_executable_docker)).
+
 This is just an experimental repository for seeing what's possible with Docker (`Dockerfile` and `docker-compose.yml` that references the `Dockerfile`) and VS Code and Webstorm [1] IDEs for development/debugging purposes of a Node.js express application.
 
 Run `npm install` to install the `express` package and its dependencies, then build the Docker image/container to run the application.
