@@ -24,13 +24,6 @@
                 "uriFormat": "http://localhost:%s",
                 "action": "openExternally",
             },
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch simple-script-example.js",
-            "program": "${workspaceFolder}/simple-script-example.js",
-        },
-        
+        }
     ]
 }
