@@ -16,6 +16,8 @@ The running container is a Node.js `express` application that prints some text t
 
 ## Step debugging `express` script using `Dockerfile`/`docker-compose.*` and VS Code
 
+Included in this repository is the file `.vscode/extensions.json`. When this directory is opened in VS Code, because of this file, a dialogue offering to install the extensions listed in the file will appear, which you should accept. The extensions installed are related to Docker and remote debugging, which are needed for step debugging in a Docker container.
+
 Possibly naive in initial thinking that you can just take any existing `Dockerfile`/`docker-compose.yml` file and use it within VS Code for step debugging. Docs (see links below) suggest you can use an existing `Dockerfile`/`docker-compose.yml` file, but it's not that straightforward as VS Code needs to alter the container to make things work.
 
 To achieve this though we can create a separate docker-compose file, `docker-compose.extend.yml` that also references the existing `Dockerfile`, but also adds a `command` that will, when the file is used, override the default `CMD` in the `Dockerfile`.
