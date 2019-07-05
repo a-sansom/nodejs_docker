@@ -31,8 +31,30 @@ WORKDIR /app
 # See https://docs.docker.com/engine/reference/builder/#run
 RUN ["npm", "install", "-g", "nodemon"]
 
+# For development purposes we can also install other required Node.js packages
+# globally. Why? Although it's considered bad practice, it means that we can
+# just store the 'application' code locally in a git repo, and all
+# dependencies can live in the Docker container. This means that there is zero
+# requirements on the host machine for Node/3rd party Node packages, just the
+# application code, but we can still run and debug the application code.
+#
+# For this to work, it means we have to have define our development workflow
+# so that any time we want to add (or remove) a Node package, we'll need
+# to:
+#
+# - Add (or remove) the package the 'npm install -g' command below. Eg. RUN ["npm", "install", "-g", "express", "lodash"]
+# - Rebuild the Docker image with docker-compose build
+# - Relaunch a container to run application code with updated packages (docker-compose up -d or via the IDE)
+#
+RUN ["npm", "install", "-g", "express"]
+# Make the global node_modules directory available in NODE_PATH env var so that
+# scripts that require('<globally installed package>') don't break.
+# As per https://stackoverflow.com/a/43504699
+ENV NODE_PATH=/usr/local/lib/node_modules
+
 # Run the 'application', with 'node'.
 #CMD ["node", "simple-express-example.js"]
+
 # Run the 'application', with 'nodemon' so that changes are immediately
 # reflected (the node application, not the container, is restarted when files
 # change).

@@ -4,13 +4,15 @@
 
 This is just an experimental repository for seeing what's possible with Docker (`Dockerfile` and `docker-compose.yml` that references the `Dockerfile`) and VS Code and Webstorm [1] IDEs for development/debugging purposes of a Node.js express application.
 
-Run `npm install` to install the `express` package and its dependencies, then build the Docker image/container to run the application.
+Build the Docker image/container to run the application.
 
 See comments in the `Dockerfile` and `docker-compose.yml` files for general usage.
 
 Simply put, running `docker-compose up -d --build` will build a new `alexsansom/nodejs_docker` image (with a `latest` tag), create a container from it, and run the container (outside/independently of any IDE's Docker capabilities).
 
 The running container is a Node.js `express` application that prints some text to the screen when you visit `http://localhost:3000` in the browser. If you edit `simple-express-example.js` in the IDE, the application is restarted (not the container) and refreshing the browser will show the changes. This is because the container uses `nodemon` to monitor for changes.
+
+The Node.js `express` package is globally installed in the Docker container so only the application code is included in this directory. This means that there's no need to install any Node related tools locally to run/debug the application.
 
 [1] The same steps here are applicable to PHPStorm too as it also has the ability to add remote Node.js interpreters and to control Docker containers.
 
